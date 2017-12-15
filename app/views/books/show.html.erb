@@ -1,0 +1,23 @@
+<div class="green">
+	<%= flash[:new] %><!-- 新規作成成功メッセージ -->
+    <%= flash[:updated]  %><!-- 成功メッセージ -->
+</div>
+<table>
+ <tr>
+ 	<th>Title:</th>
+ 	<th><%= @book.title %></th>
+ </tr>
+
+ <tr>
+ 	<th>Body:</th>
+ 	<th><%= @book.body %></th>
+ </tr>
+
+</table>
+
+<tr>
+ 	<th><%=link_to 'Edit', edit_book_path(@book.id) %></th>
+ 	<th><%=link_to 'Back', new_book_path %></th>
+</tr>
+
+
