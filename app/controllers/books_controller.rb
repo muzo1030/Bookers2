@@ -1,5 +1,13 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, except: [:top, :about]
+
   def top
+    if user_signed_in?
+      redirect_to user_path(current_user.id)
+    end
+  end
+
+  def about
   end
 
   def show
@@ -17,6 +25,7 @@ class BooksController < ApplicationController
 
   def create
         book = Book.new(book_params)
+        book.user_id = current_user.id
         book.save
         flash[:notice] = 'Book was successfully created.'
         redirect_to book_path(book.id)
@@ -25,6 +34,7 @@ class BooksController < ApplicationController
   def index
       @book = Book.new
       @books = Book.all
+      @user = current_user
   end
 
   def update

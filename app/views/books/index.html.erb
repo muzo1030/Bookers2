@@ -20,11 +20,6 @@
 
  <% end %>
 </table>
-
-
-
-
-
 <h1>New Books</h1>
 <!-- form_for部分 -->
 <%= form_for(@book) do |f| %>
@@ -40,3 +35,105 @@
 
  
 <% end %>
+
+
+
+
+
+
+
+
+
+<div class="body">
+	<div class="container">
+		<p id="notice"></p>
+		<div class="row">
+
+			<div class="col-xs-3">
+				<h2>User info</h2>
+				<img src="/no_image.jpg" alt="No image"><table class="table">
+					<tbody><tr></tr>
+						<tr>
+							<th>name</th>
+							<th><%= @user.name %></th>
+						</tr>
+						<tr>
+							<th>introduction</th>
+							<th></th>
+						</tr>
+					</tbody>
+				</table><%#= @user.introduction %>
+
+
+
+				<div class="row">
+					<a class="col-xs-12 btn btn-default glyphicon glyphicon-wrench" href="/users/167/edit"></a>
+				</div>
+				<h2>New book</h2>
+				<%= form_for(@book) do |f| %>
+				<form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="idRWRMbPKpTKz7gY6h+5uCH67tG/FKamBQ7lE4FZPVMyuRAUO1t0eCQi08L2e97YLpBQBrRlsokCDgIOssd64A==">
+					<div class="field row col-xs-12">
+						<label for="book_title">Title</label>
+						 <%#= book.title %> 削除成功メッセージ
+					</div>
+
+
+					<div class="field row">
+						<label for="book_opinion">Opinion</label>
+						<textarea class="col-xs-12" name="book[body]" id="book_body"></textarea>
+							 <%#= book.body %> 削除成功メッセージ 
+					</div>
+
+
+					<div class="actions row">
+						<input type="submit" name="commit" value="Create Book" class="btn btn-primary col-xs-12" data-disable-with="Create Book">
+					</div>
+				</form>
+				<% end %>
+			</div>
+
+			<div class="col-xs-9">
+				<h2>Books</h2>
+				<table class="table table-hover table-inverse">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Title</th>
+							<th>Opinion</th>
+							<th colspan="3"></th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td><a href="/users/167">
+								<img src="/no-image-icon.jpg" alt="No image icon">
+								</a>
+							</td>
+							<td><a href="/books/229">か</a></td>
+							<td>か</td>
+						</tr>
+
+						<tr>
+							<td><a href="/users/167">
+							<img src="/no-image-icon.jpg" alt="No image icon">
+							</a>
+							</td>
+							<td><a href="/books/228">あ</a></td>
+							<td>あ</td>
+						</tr>
+
+						<tr>
+							<td><a href="/users/167">
+								<img src="/no-image-icon.jpg" alt="No image icon">
+								</a>
+							</td>
+            				<td><a href="/books/227">あ</a></td>
+            				<td>な</td>
+          				</tr>
+      				</tbody>
+    			</table>
+  			</div>
+  		</div>
+     </div>
+</div>
